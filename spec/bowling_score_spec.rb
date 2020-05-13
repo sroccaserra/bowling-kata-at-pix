@@ -45,4 +45,14 @@ describe 'Bowling Score' do
       expect(score).to eq 16
     end
   end
+
+  context 'A game contains a spare after the first frame' do
+    it 'adds the spare bonus' do
+      rolls = [0, 0, 5, 5, 4].fill(0, 5..15)
+
+      score = compute_score(rolls)
+
+      expect(score).to eq 18
+    end
+  end
 end
