@@ -3,10 +3,18 @@ def compute_score(rolls)
 
   10.times do
     | frame_index |
-    if rolls[frame_index] + rolls[frame_index + 1] == 10
-      score += rolls[frame_index + 2]
+    if is_spare?(rolls, frame_index)
+      score += spare_bonus(rolls, frame_index)
     end
   end
 
   score
+end
+
+def is_spare?(rolls, frame_index)
+  rolls[frame_index] + rolls[frame_index + 1] == 10
+end
+
+def spare_bonus(rolls, frame_index)
+  rolls[frame_index+2]
 end
