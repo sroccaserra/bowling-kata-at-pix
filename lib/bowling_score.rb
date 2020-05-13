@@ -5,6 +5,8 @@ def compute_score(rolls)
     | frame_index |
     if is_spare?(rolls, frame_index)
       score += spare_bonus(rolls, frame_index)
+    elsif rolls[frame_index*2] == 10
+      score += rolls[frame_index*2 + 1] + rolls[frame_index*2 + 2] 
     end
   end
 
