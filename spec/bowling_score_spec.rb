@@ -38,7 +38,7 @@ describe 'Bowling Score' do
 
   context 'A game starts with a spare followed by a non zero roll' do
     it 'adds the spare bonus' do
-      rolls = [5,5,3].fill(0, 3..17)
+      rolls = [5,5,3].fill(0, 3...20)
 
       score = compute_score(rolls)
 
@@ -48,7 +48,7 @@ describe 'Bowling Score' do
 
   context 'A game contains a spare after the first frame' do
     it 'adds the spare bonus' do
-      rolls = [0, 0, 5, 5, 4].fill(0, 5..15)
+      rolls = [0, 0, 5, 5, 4].fill(0, 5...20)
 
       score = compute_score(rolls)
 
