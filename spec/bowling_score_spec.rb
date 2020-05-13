@@ -9,9 +9,6 @@
 # deux lancés par frame (sauf strike = clos la frame)
 # dix frames
 #
-# gutter game = que des zéros
-# que des un = 20 points
-# un spare, un trois et un cinq = (10 + 3) + (3+5) = 21
 # un strike, un deux et un quatre = (10 + 2 + 4) + (2 + 4) = 22
 # que des strikes = 300 points
 
@@ -36,6 +33,16 @@ describe 'Bowling Score' do
       score = compute_score(rolls)
 
       expect(score).to eq 6
+    end
+  end
+
+  context 'A game starts with a spare followed by a non zero roll' do
+    it 'adds the spare bonus' do
+      rolls = [5,5,3].fill(0, 3..17)
+
+      score = compute_score(rolls)
+
+      expect(score).to eq 16
     end
   end
 end
