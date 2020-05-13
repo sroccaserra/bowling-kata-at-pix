@@ -55,4 +55,14 @@ describe 'Bowling Score' do
       expect(score).to eq 18
     end
   end
+
+  context 'A game contains a false spare' do
+    it 'does not add the spare bonus' do
+      rolls = [0, 5, 5, 4, 0].fill(0, 4...20)
+
+      score = compute_score(rolls)
+
+      expect(score).to eq 14
+    end
+  end
 end
