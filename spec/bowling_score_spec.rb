@@ -18,18 +18,22 @@
 require 'bowling_score'
 
 describe 'Bowling Score' do
-  it 'scores zero for a gutter game' do
-    score = compute_score(Array.new(20, 0))
+  context 'Gutter game' do
+    it 'scores zero' do
+      score = compute_score(Array.new(20, 0))
 
-    expect(score).to eq 0
+      expect(score).to eq 0
+    end
   end
 
-  it 'scores 6 for 1, 2, 3 and all zeros as rolls' do
-    rolls = [1, 2, 3]
-    17.times { rolls << 0 }
+  context 'Rolls with no strike and spares' do
+    it 'scores the sum of the rolls' do
+      rolls = [1, 2, 3]
+      17.times { rolls << 0 }
 
-    score = compute_score(rolls)
+      score = compute_score(rolls)
 
-    expect(score).to eq 6
+      expect(score).to eq 6
+    end
   end
 end
