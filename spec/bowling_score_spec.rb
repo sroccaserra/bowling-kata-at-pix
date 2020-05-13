@@ -20,7 +20,9 @@ require 'bowling_score'
 describe 'Bowling Score' do
   context 'Gutter game' do
     it 'scores zero' do
-      score = compute_score(Array.new(20, 0))
+      rolls = Array.new(20, 0)
+
+      score = compute_score(rolls)
 
       expect(score).to eq 0
     end
@@ -28,7 +30,7 @@ describe 'Bowling Score' do
 
   context 'Rolls with no strike and spares' do
     it 'scores the sum of the rolls' do
-      rolls = [1, 2, 3]
+      rolls = [1, 2, 3] # Rolls structure is exposed
       17.times { rolls << 0 }
 
       score = compute_score(rolls)
